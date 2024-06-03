@@ -26,7 +26,7 @@
 > The UML diagram is as follows:
 <img src="resources/images/uml.png">
 
-## DFS
+## DFD
 
 ### Context Level
 > The context level DFD is as follows:
