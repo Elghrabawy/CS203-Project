@@ -4,6 +4,20 @@
 
 #include "Global.h"
 
+string Colors::red = "\033[1;31m";
+string Colors::green = "\033[1;32m";
+string Colors::yellow = "\033[1;33m";
+string Colors::blue = "\033[1;34m";
+string Colors::magenta = "\033[1;35m";
+string Colors::cyan = "\033[1;36m";
+string Colors::white = "\033[1;37m";
+string Colors::reset = "\033[0m";
+string Colors::bold = "\033[1m";
+string Colors::underline = "\033[4m";
+string Colors::blink = "\033[5m";
+string Colors::reverse = "\033[7m";
+string Colors::invisible = "\033[8m";
+
 int getIntRange(int low, int high)
 {
     int value;
@@ -199,6 +213,5 @@ void tableFooter(vector<int> colsSize, int startSpaces) {
         cout << "+" << string(colsSize[i], '-');
     cout << "+" << endl;
 }
-
 
 

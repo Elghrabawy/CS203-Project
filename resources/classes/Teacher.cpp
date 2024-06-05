@@ -32,16 +32,22 @@ bool Teacher::teacherMenu() {
             "choose an option...");
     switch (choice) {
         case 1: {
+            system("cls");
+            header("TEACHER INFOREMTION");
             viewInfo();
             pauseScreen();
             break;
         }
         case 2: {
+            system("cls");
+            header("STUDENTS SHEET");
             printStudentSheet();
             pauseScreen();
             break;
         }
         case 3: {
+            system("cls");
+            header("MANAGE GRADES");
             int studentID, points;
 
             printStudentSheet();
@@ -51,20 +57,22 @@ bool Teacher::teacherMenu() {
             cin >> points;
             bool done = changeGradeOfStudent(studentID, points);
             if(done)
-                cout << colored("The info changed successfully", "\033[1;32m") << endl;
+                cout << colored("The info changed successfully", Colors::green) << endl;
             else
-                cout << colored("The info didn't change successfully.", "\033[1;31m") << endl;
+                cout << colored("The info didn't change successfully.", Colors::red) << endl;
             pauseScreen();
             break;
         }
         case 4: {
+            system("cls");
             modifyInfo();
             pauseScreen();
             break;
         }
-        case 5:
+        case 5:{
+            system("cls");
             return false;
-            break;
+        }
     }
     return true;
 }
@@ -141,11 +149,11 @@ void Teacher::modifyInfo() {
 }
 
 void Teacher::viewInfo() {
-    tableHeader({make_pair("ID", 12), make_pair(to_string(id), 30)}, 16);
-    tableHeader({make_pair("Name", 12), make_pair(name, 30)}, 16);
-    tableHeader({make_pair("Email", 12), make_pair(email, 30)}, 16);
-    tableHeader({make_pair("course Code", 12), make_pair(courseCode, 30)}, 16);
-    tableHeader({make_pair("Password", 12), make_pair(password, 30)}, 16);
+    tableHeader({make_pair("ID", 12), make_pair(to_string(id), 29)}, 17);
+    tableHeader({make_pair("Name", 12), make_pair(name, 29)}, 17);
+    tableHeader({make_pair("Email", 12), make_pair(email, 29)}, 17);
+    tableHeader({make_pair("course Code", 12), make_pair(courseCode, 29)}, 17);
+    tableHeader({make_pair("Password", 12), make_pair(password, 29)}, 17);
 }
 
 
