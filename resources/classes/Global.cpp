@@ -169,5 +169,36 @@ void _exit() {
     usleep(100 * 1000);
 }
 
+void tableHeader(vector<pair<string, int>> headers, int startSpaces) {
+    cout << string(startSpaces, ' ');
+    for(int i = 0; i < headers.size(); i++)
+        cout << "+" << string(headers[i].second, '-');
+    cout << "+" << endl;
+
+    cout << string(startSpaces, ' ');
+    for(int i = 0; i < headers.size(); i++)
+        cout << "|" << printAlign(headers[i].first, CENTER, headers[i].second);
+    cout << "|" << endl;
+
+    cout << string(startSpaces, ' ');
+    for(int i = 0; i < headers.size(); i++)
+        cout << "+" << string(headers[i].second, '-');
+    cout << "+" << endl;
+}
+
+void tableData(vector<pair<string, int>> content, int startSpaces) {
+    cout << string(startSpaces, ' ');
+    for(int i = 0; i < content.size(); i++)
+        cout << "|" << printAlign(content[i].first, CENTER, content[i].second);
+    cout << "|" << endl;
+}
+
+void tableFooter(vector<int> colsSize, int startSpaces) {
+    cout << string(startSpaces, ' ');
+    for(int i = 0; i < colsSize.size(); i++)
+        cout << "+" << string(colsSize[i], '-');
+    cout << "+" << endl;
+}
+
 
 

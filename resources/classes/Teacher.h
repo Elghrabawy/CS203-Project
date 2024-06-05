@@ -13,44 +13,79 @@
 
 using namespace std;
 
+// Counter for teacher IDs
 static int TeacherIDCounter = 1;
 
+/**
+ * Teacher class, inheriting from User
+ */
 class Teacher : public User{
 private:
-    string courseCode;
-    float salary;
+    string courseCode; // Course code that the teacher is teaching
+    float salary; // Salary of the teacher
 public:
-    map<int, Student> students;
-    map<string, Course> courses; // course code - course
+    map<int, Student> students; // Map of students with student ID as key
+    map<string, Course> courses; // Map of courses with course code as key
 
+    /**
+     * Constructor with ID, name, email, password, course code, and salary
+     */
     Teacher(int id, string Name, string Email, string Password, string Code, float Salary);
+
+    /**
+     * Constructor with name, email, password, course code, and salary
+     */
     Teacher(string Name, string Email, string Password, string Code, float Salary);
-    // return course code
+
+    /**
+     * Getter for course code
+     */
     string getCourseCode();
 
-    // return teacher salary
+    /**
+     * Getter for teacher salary
+     */
     float getSalary();
 
-    // change teacher salary
+    /**
+     * Setter for teacher salary
+     */
     void setSalary(float Salary);
 
-    // manage grades- get student id and his new points.
-    void changeGradeOfStudent(int studentID, int points);
+    /**
+     * Method to change grade of a student
+     * @param studentID - ID of the student
+     * @param points - Points to be changed
+     * @return - True if the operation was successful, false otherwise
+     */
+    bool changeGradeOfStudent(int studentID, int points);
 
-    // return vector of students
-    vector<Student> studentsSheet();
 
-    // print all students and its points in own course.
+    /**
+     * Method to print all students and their points in own course
+     */
     void printStudentSheet();
 
-    // manage grade of student
+    /**
+     * Method to manage grade of a student
+     */
     void manageGrade();
 
-    // modify teacher informations
+    /**
+     * Method to modify teacher information
+     */
     void modifyInfo();
 
+    /**
+     * Method for teacher menu
+     */
+    bool teacherMenu();
 
-    // display teacher interface
+    void viewInfo();
+
+    /**
+     * Override login method from User
+     */
     void login() override;
 };
 

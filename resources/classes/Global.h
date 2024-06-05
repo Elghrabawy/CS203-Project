@@ -12,6 +12,17 @@
 
 using namespace std;
 
+//map <string, string> colors = {
+//        {"red", "\033[1;31m"},
+//        {"green", "\033[1;32m"},
+//        {"yellow", "\033[1;33m"},
+//        {"blue", "\033[1;34m"},
+//        {"magenta", "\033[1;35m"},
+//        {"cyan", "\033[1;36m"},
+//        {"white", "\033[1;37m"},
+//        {"reset", "\033[0m"}
+//};
+
 /**
  * Function to get an integer within a specified range.
  * If the input is not within the range, the function will recursively ask for input until a valid one is provided.
@@ -84,6 +95,7 @@ string printAlign(string input, Position pos, int width);
  * @param startSpaces - The number of spaces before the table.
  */
 void tableHeader(vector<string> headers, int width = 15, int startSpaces = 20);
+void tableHeader(vector<pair<string, int>> headers, int startSpaces = 20);
 /**
  * Function to print a row of table data.
  * @param content - The vector of strings representing the content of the row.
@@ -91,6 +103,7 @@ void tableHeader(vector<string> headers, int width = 15, int startSpaces = 20);
  * @param startSpaces - The number of spaces before the table.
  */
 void tableData(vector<string> content, int width = 15, int startSpaces = 20);
+void tableData(vector<pair<string, int>> content, int startSpaces = 20);
 /**
  * Function to print a table footer.
  * @param colNumbers - The number of columns in the table.
@@ -98,6 +111,7 @@ void tableData(vector<string> content, int width = 15, int startSpaces = 20);
  * @param startSpaces - The number of spaces before the table.
  */
 void tableFooter(int colNumbers, int width = 15, int startSpaces = 20);
+void tableFooter(vector<int> colsSize, int startSpaces = 20);
 
 void _exit();
 

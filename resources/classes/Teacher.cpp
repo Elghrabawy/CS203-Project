@@ -3,54 +3,78 @@
 //
 
 #include "Teacher.h"
+#include "DB.h"
 
 Teacher::Teacher(string Name, string Email, string Password, string Code, float Salary)
-        : User(TeacherIDCounter++, Name, Email, Password){
+        : User(TeacherIDCounter++, Name, Email, Password) {
     courseCode = Code, salary = Salary;
 }
 
 Teacher::Teacher(int ID, string Name, string Email, string Password, string Code, float Salary)
-        : User(ID, Name, Email, Password){
+        : User(ID, Name, Email, Password) {
     courseCode = Code, salary = Salary;
 }
 
 void Teacher::login() {
-    int choice = readMenu({"view all info", "show students", "manage grade", "modify info", "Exit"}, "choose an option...");
-    switch (choice)
-    {
+    while (teacherMenu());
+}
+
+
+
+bool Teacher::teacherMenu() {
+    system("cls");
+    int choice = readMenu(
+            {"view all info",
+             "show students",
+             "manage grade",
+             "modify info", "Exit"
+            },
+            "choose an option...");
+    switch (choice) {
         case 1: {
-            cout << "The course code is: " << courseCode << endl;
-            cout << "Name is: " << get_name() << endl;
-            cout << "The email is: " << get_email() << endl;
-            cout << "your password is: " << get_password() << endl;
-            cout << "the salary is:" << salary << endl;
+            viewInfo();
+            pauseScreen();
             break;
         }
         case 2: {
             printStudentSheet();
+            pauseScreen();
             break;
         }
         case 3: {
-            int id, points;
-            cout << "Enter the id of student you want to change" << endl;
-            cin >> id;
-            cout << "Enter the new points" << endl;
-            changeGradeOfStudent(id, points);
-            cout << "The info changed successfully." << endl;
+            int studentID, points;
+
+            printStudentSheet();
+            cout << "Enter the id of student you want to change: ";
+            cin >> studentID;
+            cout << "Enter the new points: ";
+            cin >> points;
+            bool done = changeGradeOfStudent(studentID, points);
+            if(done)
+                cout << colored("The info changed successfully", "\033[1;32m") << endl;
+            else
+                cout << colored("The info didn't change successfully.", "\033[1;31m") << endl;
+            pauseScreen();
             break;
         }
         case 4: {
             modifyInfo();
+            pauseScreen();
             break;
         }
         case 5:
+            return false;
             break;
     }
+    return true;
 }
 
-void Teacher::changeGradeOfStudent(int studentID, int points) {
-    auto s = students.find(studentID);
-    s->second.changeCoursePoints(courseCode, points);
+bool Teacher::changeGradeOfStudent(int studentID, int points) {
+    if(points < 0 || points > 100) {
+        cout << "Invalid points" << endl;
+        return false;
+    }
+    return DB::modifyEnrollment(studentID, courseCode, points);
 }
 
 string Teacher::getCourseCode() {
@@ -65,46 +89,29 @@ void Teacher::setSalary(float Salary) {
     salary = Salary;
 }
 
-vector<Student> Teacher::studentsSheet() {
-    vector <Student> studentsSheet;
-    /* classes
-     *
-     * first, second
-     * course code, course
-     * key  , value
-     * classes.find(courseCode)->second
-     */
-    Course TeacherCourse = courses.find(courseCode)->second;
-    /*
-     * classe
-     * code, title, vector int(student id).
-     */
-
-    for(auto &studentID : TeacherCourse.getStudentIDs()){
-        // course code
-        /*
-         * key , value
-         * sid , stduent
-         * students.find(studentID)->second
-         */
-        studentsSheet.push_back(students.find(studentID)->second);
+void Teacher::printStudentSheet() {
+    vector<pair<Student, Enrollment>> students = DB::getStudentsOfTeacher(get_id());
+    tableHeader(
+            {
+                make_pair("ID", 6),
+                make_pair("Name", 24),
+                make_pair("Points", 10)
+            },
+            17);
+    for(auto &[student, enrollment] : students){
+        tableData(
+            {
+                make_pair(to_string(student.get_id()), 6),
+                make_pair(student.get_name(), 24),
+                make_pair(enrollment.get_points() != -1 ? to_string(enrollment.get_points()) : "Pending", 10)
+            },
+            17
+            );
     }
-    return studentsSheet;
+    tableFooter({6, 24, 10}, 17);
 }
 
-
-
-void Teacher::printStudentSheet()
-{
-    vector<Student> students_sheet = studentsSheet();
-    for (int i = 0; i < students_sheet.size(); i++)
-    {
-        cout << students_sheet[i].get_name() << endl;
-    }
-}
-
-void Teacher::modifyInfo()
-{
+void Teacher::modifyInfo() {
     int choice = readMenu({"Name", "Email", "Password"}, "Modify Info");
     switch (choice) {
         case 1: {
@@ -112,6 +119,7 @@ void Teacher::modifyInfo()
             string Name;
             cin >> Name;
             setName(Name);
+            DB::modifyTeacher(get_id(), Name, DB::fields::_NAME);
             break;
         }
         case 2: {
@@ -119,15 +127,25 @@ void Teacher::modifyInfo()
             string Email;
             cin >> Email;
             setEmail(Email);
+            DB::modifyTeacher(get_id(), Email, DB::fields::_EMAIL);
             break;
         }
         default: {
             cout << "Enter the new password";
-            string pass;
-            cin >> pass;
-            setPassword(pass);
+            string Password;
+            cin >> Password;
+            setPassword(Password);
+            DB::modifyTeacher(get_id(), Password, DB::fields::_PASSWORD);
         }
     }
+}
+
+void Teacher::viewInfo() {
+    tableHeader({make_pair("ID", 12), make_pair(to_string(id), 30)}, 16);
+    tableHeader({make_pair("Name", 12), make_pair(name, 30)}, 16);
+    tableHeader({make_pair("Email", 12), make_pair(email, 30)}, 16);
+    tableHeader({make_pair("course Code", 12), make_pair(courseCode, 30)}, 16);
+    tableHeader({make_pair("Password", 12), make_pair(password, 30)}, 16);
 }
 
 

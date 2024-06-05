@@ -1,10 +1,10 @@
 
 #include "Admin.h"
+
 using namespace std;
 
 
-void clearScreen()
-{
+void clearScreen() {
 #ifdef _WIN32
     system("cls");
 #else
@@ -12,15 +12,13 @@ void clearScreen()
 #endif
 }
 
-void pauseScreen()
-{
+void pauseScreen() {
     cout << "Press Enter to continue...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
 }
 
-void displayLogo()
-{
+void displayLogo() {
     cout << "\033[1;35m"; // Set text color to magenta
     cout << R"(
   /--------------------------------------------------\
@@ -61,87 +59,83 @@ void displayLogo()
 //    cout << "\033[0m"; // Reset text color
 //}
 
-void displayFooter()
-{
+void displayFooter() {
     cout << "\033[1;33m"; // Set text color to yellow
     header("Powerd by One More Trie");
     cout << "\033[0m"; // Reset text color
 }
 
 
-Admin::Admin(int id , string email, string name , string pass )
-        :User( id , name, email , pass) {
+Admin::Admin(int id, string email, string name, string pass)
+        : User(id, name, email, pass) {
 }
 
-void Admin:: addStudent (Student s){
-    auto it =students.find(s.get_id());
-    if(it==students.end()){
+void Admin::addStudent(Student s) {
+    auto it = students.find(s.get_id());
+    if (it == students.end()) {
         students.insert({s.get_id(), s});
-        cout<<"Student Added Successfully \n";
-    }
-    else{
-        cout<<"Student with id "<<s.get_id()<<" exists , please try again \n";
+        cout << "Student Added Successfully \n";
+    } else {
+        cout << "Student with id " << s.get_id() << " exists , please try again \n";
     }
 }
 
-void Admin:: removeStudent (int id){
+void Admin::removeStudent(int id) {
     auto it = students.find(id);
     if (it != students.end()) {
         students.erase(it);
-        cout << "Deleted student-id: "<< id<<endl;
-    }
-    else{
-        cout<<"Student of ID "<<id<< "not found \n"<<endl;
+        cout << "Deleted student-id: " << id << endl;
+    } else {
+        cout << "Student of ID " << id << "not found \n" << endl;
     }
 }
-void Admin:: addTeacher (Teacher t){
-    auto it =teachers.find(t.get_id());
-    if(it==teachers.end()){
+
+void Admin::addTeacher(Teacher t) {
+    auto it = teachers.find(t.get_id());
+    if (it == teachers.end()) {
         teachers.insert({t.get_id(), t});
-        cout<<"Teacher Added Successfully \n";
-    }
-    else{
-        cout<<"Teacher with id "<<t.get_id()<<" exists , please try again \n";
+        cout << "Teacher Added Successfully \n";
+    } else {
+        cout << "Teacher with id " << t.get_id() << " exists , please try again \n";
     }
 }
-void Admin:: removeTeacher(int id ){
+
+void Admin::removeTeacher(int id) {
     auto it = teachers.find(id);
     if (it != teachers.end()) {
         teachers.erase(it);
-        cout << "Deleted teacher-id: "<< id<<endl;
-    }
-    else {
-        cout<<"Teatcher of ID "<<id<< "not found \n"<<endl;
-    }
-}
-void Admin:: addCourse (Course c){
-    auto it =courses.find(c.get_code());
-    if(it==courses.end()){
-        courses.insert({c.get_code() , c});
-        cout<<"New Course Added Successfully \n";
-    }
-    else{
-        cout<<"Invalid Course Code , please try again \n";
+        cout << "Deleted teacher-id: " << id << endl;
+    } else {
+        cout << "Teatcher of ID " << id << "not found \n" << endl;
     }
 }
-void Admin:: removeCourse(string c){
+
+void Admin::addCourse(Course c) {
+    auto it = courses.find(c.get_code());
+    if (it == courses.end()) {
+        courses.insert({c.get_code(), c});
+        cout << "New Course Added Successfully \n";
+    } else {
+        cout << "Invalid Course Code , please try again \n";
+    }
+}
+
+void Admin::removeCourse(string c) {
     auto it = courses.find(c);
     if (it != courses.end()) {
         courses.erase(it);
-        cout << "Deleted Course Code : "<< c <<endl;
-    }
-    else {
-        cout<<"Course of Code "<<c<< "not found \n"<<endl;
+        cout << "Deleted Course Code : " << c << endl;
+    } else {
+        cout << "Course of Code " << c << "not found \n" << endl;
     }
 }
 
-void Admin:: printAllStudents()  {
+void Admin::printAllStudents() {
     if (students.empty()) {
         cout << "No students found!" << endl;
-    }
-    else {
+    } else {
         tableHeader({"ID", "Name"}, 15, 23);
-        for(auto it : students){
+        for (auto it: students) {
 //            cout << "ID: " << it.first << ", Name: " << it.second.get_name() << endl;
             tableData({to_string(it.first), it.second.get_name()}, 15, 23);
         }
@@ -149,13 +143,12 @@ void Admin:: printAllStudents()  {
     }
 }
 
-void Admin:: printAllTeachers()  {
+void Admin::printAllTeachers() {
     if (teachers.empty()) {
         cout << "No teachers found!" << endl;
-    }
-    else {
+    } else {
         tableHeader({"ID", "Name"}, 15, 23);
-        for(auto it : students){
+        for (auto it: students) {
 //            cout << "ID: " << it.first << ", Name: " << it.second.get_name() << endl;
             tableData({to_string(it.first), it.second.get_name()}, 15, 23);
         }
@@ -163,13 +156,12 @@ void Admin:: printAllTeachers()  {
     }
 }
 
-void Admin:: printAllCourses() {
+void Admin::printAllCourses() {
     if (courses.empty()) {
         cout << "No courses found!" << endl;
-    }
-    else {
+    } else {
         tableHeader({"ID", "Name"}, 15, 23);
-        for(auto it : courses){
+        for (auto it: courses) {
 //            cout << "ID: " << it.first << ", Name: " << it.second.get_title() << endl;
             tableData({it.first, it.second.get_title()}, 15, 23);
         }
@@ -177,7 +169,7 @@ void Admin:: printAllCourses() {
     }
 }
 
-void Admin:: adminMenu() {
+void Admin::adminMenu() {
     int choice;
     do {
         clearScreen();

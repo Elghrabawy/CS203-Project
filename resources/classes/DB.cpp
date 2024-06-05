@@ -306,11 +306,13 @@ vector<Course> DB::getAllCourses() {
 bool DB::modifyEnrollment(int studentID, string courseCode, int points) {
     SQLite::Database db = SQLite::Database(DATABASE_PATH, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
 
-    SQLite::Statement qryEnrollment(db, "SELECT COUNT(*) as count FROM enrollments");
+    SQLite::Statement qryEnrollment(db, "SELECT COUNT(*) as count FROM enrollments WHERE courseCode = ? AND studentID = ?");
+    qryEnrollment.bind(1, courseCode);
+    qryEnrollment.bind(2, studentID);
     qryEnrollment.executeStep();
 
-    if(qryEnrollment.getColumn("count").getInt() < 0){
-        return 0;
+    if(qryEnrollment.getColumn("count").getInt() == 0){
+        return false;
     }
 
     SQLite::Statement qryModify(db, "UPDATE enrollments SET grade = ? WHERE studentID = ? AND courseCode = ?");
@@ -334,6 +336,37 @@ vector<string> DB::getNotEnrolledCourses(int studentID) {
         coursesCodes.push_back(qryCourse.getColumn("courseCode").getString());
     }
     return coursesCodes;
+}
+
+vector<pair<Student, Enrollment>> DB::getStudentsOfTeacher(int teacherID) {
+    vector<pair<Student, Enrollment>> students;
+    string stm = R"(
+        SELECT students.name AS studentName, students.studentID AS studentID, students.email AS studentEmail, students.password AS studentPassword,
+        enrollments.courseCode AS courseCode, enrollments.grade AS grade
+            FROM students JOIN enrollments JOIN courses JOIN teachers
+                WHERE
+                students.studentID = enrollments.studentID
+                AND enrollments.courseCode = courses.courseCode
+                AND courses.courseCode = teachers.courseCode
+                AND teachers.teacherID = ?;
+    )";
+    SQLite::Statement qryStudents(db, stm);
+    qryStudents.bind(1, teacherID);
+
+    while(qryStudents.executeStep()){
+        string studentName = qryStudents.getColumn("studentName").getString();
+        int studentID = qryStudents.getColumn("studentID").getInt();
+        string studentEmail = qryStudents.getColumn("studentEmail").getString();
+        string studentPassword = qryStudents.getColumn("studentPassword").getString();
+        string courseCode = qryStudents.getColumn("courseCode").getString();
+        int grade = qryStudents.getColumn("grade").getInt();
+
+        Student student(studentID, studentName, studentEmail, studentPassword, {});
+        Enrollment enrollment(studentID, courseCode, grade);
+
+        students.push_back(make_pair(student, enrollment));
+    }
+    return students;
 }
 
 

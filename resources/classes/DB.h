@@ -74,7 +74,6 @@ public:
    */
     static vector<Teacher> getAllTeachers();
 
-
     /**
      * Function to modify teacher information in db, return true if modified else return zero if has problem line can't find teacher or invalid input.
      * @param id - The id of the teacher.
@@ -96,7 +95,12 @@ public:
     */
     static int addNewTeacher(string name, string email, string password, string courseCode, float salary);
 
-
+    /**
+     * Function to get all students of a teacher.
+     * @param teacherID
+     * @return pair of Student and his Enrollment.
+     */
+    static vector<pair<Student, Enrollment>> getStudentsOfTeacher(int teacherID);
     /********** Enrollments table functions **********/
     /**
      * Function to add a new enrollment in the database.
