@@ -4,7 +4,7 @@
 - [Introduction](#introduction)
 - [Database Schema](#database-schema)
 - [SRS](resources/md/SRS.md)
-- [UML](#uml)
+- [UML Class Diagram](#uml-class-diagram)
 - [DFD](#dfd)
   - [Context Level](#context-level)
   - [Level 0](#level-0)
@@ -22,7 +22,7 @@
 > The Software Requirements Specification document can be found [here](resources/md/SRS.md)
 
 
-## UML
+## UML Class Diagram
 > The UML diagram is as follows:
 <img src="resources/images/uml.png">
 
