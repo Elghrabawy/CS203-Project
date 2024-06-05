@@ -24,12 +24,11 @@ public:
     map<string, Course> courses;
 
     Admin(int id , string email, string name , string pass );
-    void addStudent (Student);
     void addStudent (string Name, string Email, string Password);
     void removeStudent (int);
-    void addTeacher (Teacher);
+    void addTeacher(string Name, string Email, string password, string courseCode, double salary);
     void removeTeacher(int);
-    void addCourse (Course);
+    void addCourse (string courseCode, string courseTitle);
     void removeCourse(string);
 
 

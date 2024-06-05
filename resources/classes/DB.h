@@ -110,7 +110,13 @@ public:
      * @return pair of Student and his Enrollment.
      */
     static vector<pair<Student, Enrollment>> getStudentsOfTeacher(int teacherID);
+
+
+    static bool removeTeacher(int id);
+
+
     /********** Enrollments table functions **********/
+
     /**
      * Function to add a new enrollment in the database.
      * @param code - The code of the course.
@@ -129,19 +135,41 @@ public:
 
 
     /********** Courses table functions **********/
+
     /**
     * Function to get a course object by course code.
     * @param code - The code of the course.
     * @return - The course object.
     */
-
     static vector<string> getNotEnrolledCourses(int studentID);
+
+    /**
+     * Function to get course object by course code.
+     * @param code - The code of the course.
+     * @return - The course object.
+     */
     static Course getCourse(string code);
+
     /**
      * Function to get all courses as objects.
      * @return - A vector of course objects.
      */
     static vector<Course> getAllCourses();
+
+    /**
+     * Function to add New course to database
+     * @param code - The code of the course.
+     * @param title - The title of the course.
+     * @return - True if the operation was successful, false otherwise.
+     */
+    static bool addNewCourse(string code, string title);
+
+    /**
+     * Function to remove a course from the
+     * @param code
+     * @return
+     */
+    static bool removeCourse(string code);
 };
 
 

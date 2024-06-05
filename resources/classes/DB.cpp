@@ -374,5 +374,31 @@ bool DB::removeStudent(int id) {
     return qryRemoveStudent.exec();
 }
 
+bool DB::removeTeacher(int id) {
+    SQLite::Statement qryRemoveTeacher(db, "DELETE FROM teachers WHERE teacherID = ?");
+    qryRemoveTeacher.bind(1, id);
+    return qryRemoveTeacher.exec();
+}
+
+bool DB::addNewCourse(string code, string title) {
+    SQLite::Statement qryCourse(db, "SELECT COUNT(*) as count FROM courses WHERE courseCode = ?");
+    qryCourse.bind(1, code);
+
+    qryCourse.executeStep();
+    int count = qryCourse.getColumn("count").getInt();
+
+    if(count == 0){
+        SQLite::Statement qryInsertCourse(db, "INSERT INTO courses(courseCode, title) VALUES(?, ?)");
+        qryInsertCourse.bind(1, code);
+        qryInsertCourse.bind(2, title);
+        qryInsertCourse.exec();
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
 
 
