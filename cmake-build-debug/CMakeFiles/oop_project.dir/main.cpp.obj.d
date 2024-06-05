@@ -194,11 +194,6 @@ CMakeFiles/oop_project.dir/main.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
- C:/Users/hima1/CLionProjects/oop-project/resources/classes/Global.h \
- C:/Users/hima1/CLionProjects/oop-project/resources/classes/Teacher.h \
- C:/Users/hima1/CLionProjects/oop-project/resources/classes/Student.h \
- C:/Users/hima1/CLionProjects/oop-project/resources/classes/Admin.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/math.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/math.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h \
@@ -215,6 +210,10 @@ CMakeFiles/oop_project.dir/main.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_laguerre.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc \
+ C:/Users/hima1/CLionProjects/oop-project/resources/classes/Global.h \
+ C:/Users/hima1/CLionProjects/oop-project/resources/classes/Teacher.h \
+ C:/Users/hima1/CLionProjects/oop-project/resources/classes/Student.h \
+ C:/Users/hima1/CLionProjects/oop-project/resources/classes/Admin.h \
  C:/Users/hima1/CLionProjects/oop-project/resources/classes/Teacher.h \
  C:/Users/hima1/CLionProjects/oop-project/resources/classes/DB.h \
  C:/Users/hima1/CLionProjects/oop-project/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h \

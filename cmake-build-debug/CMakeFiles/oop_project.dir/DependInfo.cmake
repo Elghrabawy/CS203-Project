@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/hima1/CLionProjects/oop-project/resources/classes/Enrollment.cpp" "CMakeFiles/oop_project.dir/resources/classes/Enrollment.cpp.obj" "gcc" "CMakeFiles/oop_project.dir/resources/classes/Enrollment.cpp.obj.d"
   "C:/Users/hima1/CLionProjects/oop-project/resources/classes/Global.cpp" "CMakeFiles/oop_project.dir/resources/classes/Global.cpp.obj" "gcc" "CMakeFiles/oop_project.dir/resources/classes/Global.cpp.obj.d"
   "C:/Users/hima1/CLionProjects/oop-project/resources/classes/Student.cpp" "CMakeFiles/oop_project.dir/resources/classes/Student.cpp.obj" "gcc" "CMakeFiles/oop_project.dir/resources/classes/Student.cpp.obj.d"
+  "C:/Users/hima1/CLionProjects/oop-project/resources/classes/System.cpp" "CMakeFiles/oop_project.dir/resources/classes/System.cpp.obj" "gcc" "CMakeFiles/oop_project.dir/resources/classes/System.cpp.obj.d"
   "C:/Users/hima1/CLionProjects/oop-project/resources/classes/Teacher.cpp" "CMakeFiles/oop_project.dir/resources/classes/Teacher.cpp.obj" "gcc" "CMakeFiles/oop_project.dir/resources/classes/Teacher.cpp.obj.d"
   "C:/Users/hima1/CLionProjects/oop-project/resources/classes/User.cpp" "CMakeFiles/oop_project.dir/resources/classes/User.cpp.obj" "gcc" "CMakeFiles/oop_project.dir/resources/classes/User.cpp.obj.d"
   )

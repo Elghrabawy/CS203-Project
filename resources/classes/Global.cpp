@@ -214,4 +214,19 @@ void tableFooter(vector<int> colsSize, int startSpaces) {
     cout << "+" << endl;
 }
 
+void clearScreen() {
+#ifdef _WIN32
+        system("cls");
+#else
+        cout << "\033[2J\033[1;1H";
+#endif
+
+}
+
+void pauseScreen() {
+    cout << "Press Enter to continue...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+}
+
 

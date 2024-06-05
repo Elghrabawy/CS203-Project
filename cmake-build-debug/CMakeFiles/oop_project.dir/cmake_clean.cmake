@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/oop_project.dir/resources/classes/Global.cpp.obj.d"
   "CMakeFiles/oop_project.dir/resources/classes/Student.cpp.obj"
   "CMakeFiles/oop_project.dir/resources/classes/Student.cpp.obj.d"
+  "CMakeFiles/oop_project.dir/resources/classes/System.cpp.obj"
+  "CMakeFiles/oop_project.dir/resources/classes/System.cpp.obj.d"
   "CMakeFiles/oop_project.dir/resources/classes/Teacher.cpp.obj"
   "CMakeFiles/oop_project.dir/resources/classes/Teacher.cpp.obj.d"
   "CMakeFiles/oop_project.dir/resources/classes/User.cpp.obj"

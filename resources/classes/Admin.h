@@ -6,7 +6,7 @@
 #define OOP_PROJECT_ADMIN_H
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include "User.h"
 #include "Student.h"
 #include "Teacher.h"
@@ -25,6 +25,7 @@ public:
 
     Admin(int id , string email, string name , string pass );
     void addStudent (Student);
+    void addStudent (string Name, string Email, string Password);
     void removeStudent (int);
     void addTeacher (Teacher);
     void removeTeacher(int);

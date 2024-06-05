@@ -367,6 +367,30 @@ resources/classes/Student.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\oop_project.dir\build.make CMakeFiles/oop_project.dir/resources/classes/Student.cpp.s
 .PHONY : resources/classes/Student.cpp.s
 
+resources/classes/System.obj: resources/classes/System.cpp.obj
+.PHONY : resources/classes/System.obj
+
+# target to build an object file
+resources/classes/System.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\oop_project.dir\build.make CMakeFiles/oop_project.dir/resources/classes/System.cpp.obj
+.PHONY : resources/classes/System.cpp.obj
+
+resources/classes/System.i: resources/classes/System.cpp.i
+.PHONY : resources/classes/System.i
+
+# target to preprocess a source file
+resources/classes/System.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\oop_project.dir\build.make CMakeFiles/oop_project.dir/resources/classes/System.cpp.i
+.PHONY : resources/classes/System.cpp.i
+
+resources/classes/System.s: resources/classes/System.cpp.s
+.PHONY : resources/classes/System.s
+
+# target to generate assembly for a file
+resources/classes/System.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\oop_project.dir\build.make CMakeFiles/oop_project.dir/resources/classes/System.cpp.s
+.PHONY : resources/classes/System.cpp.s
+
 resources/classes/Teacher.obj: resources/classes/Teacher.cpp.obj
 .PHONY : resources/classes/Teacher.obj
 
@@ -451,6 +475,9 @@ help:
 	@echo ... resources/classes/Student.obj
 	@echo ... resources/classes/Student.i
 	@echo ... resources/classes/Student.s
+	@echo ... resources/classes/System.obj
+	@echo ... resources/classes/System.i
+	@echo ... resources/classes/System.s
 	@echo ... resources/classes/Teacher.obj
 	@echo ... resources/classes/Teacher.i
 	@echo ... resources/classes/Teacher.s

@@ -70,21 +70,21 @@ int teacherLogin(){
     cout << string(78/2 - 5, ' ') << " : ";
     cin >> id;
 
-    auto it = teachers.find(id);
-
-    if(it == teachers.end()){
+    Teacher teacher = DB::getTeacher(id);
+    if(!teacher.is()) {
         return -1;
     }
+    else {
+        string password;
+        cout << printAlign("Teacher Password", CENTER, 78) << endl;
+        cout << string(78 / 2 - 5, ' ') << " : ";
+        cin >> password;
 
-    string password;
-    cout << printAlign("Teacher Password", CENTER, 78) << endl;
-    cout << string(78/2 - 5, ' ') << " : ";
-    cin >> password;
-
-    if(it->second.get_password() == password)
-        return id;
-    else
-        return -2;
+        if (teacher.get_password() == password)
+            return id;
+        else
+            return -2;
+    }
 }
 
 int adminLogin(){
@@ -158,9 +158,7 @@ void login() {
                 login();
             }else{
                 system("cls");
-                Teacher &cur = teachers.find(id)->second;
-                cur.students = students;
-                cur.courses = courses;
+                Teacher cur = DB::getTeacher(id);
                 cur.login();
             }
             break;
@@ -197,24 +195,24 @@ int main() {
     display_logo();
     displayName();
 
-    Student s1("ibrahim", "ibrahim@gmail.com", "123", {});
-    Student s2("ahmed", "ahmed@gmail.com", "123", {});
-    Student s3("khaled", "khaled@gmail.com", "123", {});
-
-    students.insert({s1.get_id(), s1});
-    students.insert({s2.get_id(), s2});
-    students.insert({s3.get_id(), s3});
-
-    Course c1("cs1", "programming 1");
-    Course c2("cs2", "programming 2");
-    Course c3("cs3", "programming 3");
-
-    Teacher t1("ibrahim", "ibrahim@gmail.com", "123", "cs1", 4000);
-    Teacher t2("ahmed", "ahmed@gmail.com", "123", "cs2", 3000);
-    Teacher t3("khaled", "khaled@gmail.com", "123", "cs3", 2000);
-    teachers.insert({t1.get_id(), t1});
-    teachers.insert({t2.get_id(), t2});
-    teachers.insert({t3.get_id(), t3});
+//    Student s1("ibrahim", "ibrahim@gmail.com", "123", {});
+//    Student s2("ahmed", "ahmed@gmail.com", "123", {});
+//    Student s3("khaled", "khaled@gmail.com", "123", {});
+//
+//    students.insert({s1.get_id(), s1});
+//    students.insert({s2.get_id(), s2});
+//    students.insert({s3.get_id(), s3});
+//
+//    Course c1("cs1", "programming 1");
+//    Course c2("cs2", "programming 2");
+//    Course c3("cs3", "programming 3");
+//
+//    Teacher t1("ibrahim", "ibrahim@gmail.com", "123", "cs1", 4000);
+//    Teacher t2("ahmed", "ahmed@gmail.com", "123", "cs2", 3000);
+//    Teacher t3("khaled", "khaled@gmail.com", "123", "cs3", 2000);
+//    teachers.insert({t1.get_id(), t1});
+//    teachers.insert({t2.get_id(), t2});
+//    teachers.insert({t3.get_id(), t3});
 
     Admin a(1, "admin@gmail.com", "admin", "123");
     admins.insert({1, a});

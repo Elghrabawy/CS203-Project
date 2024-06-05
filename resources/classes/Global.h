@@ -9,6 +9,7 @@
 #include <vector>
 #include <map>
 #include <unistd.h>
+#include <cmath>
 
 using namespace std;
 
@@ -83,7 +84,9 @@ void to_upper(string& s);
  */
 bool isContinue();
 
-// pause screen.
+/**
+ * Function to pause the screen.
+ */
 void pauseScreen();
 
 enum Position {LEFT, CENTER, RIGHT};
@@ -121,6 +124,10 @@ void tableData(vector<pair<string, int>> content, int startSpaces = 20);
 void tableFooter(int colNumbers, int width = 15, int startSpaces = 20);
 void tableFooter(vector<int> colsSize, int startSpaces = 20);
 
-void _exit();
+/**
+ * Function to clear the screen.
+ */
+void clearScreen();
+
 
 #endif //OOP_PROJECT_GLOBAL_H

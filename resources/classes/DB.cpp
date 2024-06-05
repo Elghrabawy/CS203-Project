@@ -89,8 +89,6 @@ bool DB::modifyStudentInfo(int id, string value, DB::fields field) {
 }
 
 int DB::addNewStudent(string name, string email, string password) {
-//    SQLite::Database db = SQLite::Database(DATABASE_PATH, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
-
     SQLite::Statement qryInsertStudent(
             db,
             "INSERT INTO students(name, email, password) VALUES(?, ?, ?) returning studentID"
@@ -367,6 +365,13 @@ vector<pair<Student, Enrollment>> DB::getStudentsOfTeacher(int teacherID) {
         students.push_back(make_pair(student, enrollment));
     }
     return students;
+}
+
+bool DB::removeStudent(int id) {
+    SQLite::Statement qryRemoveStudent(db, "DELETE FROM students WHERE studentID = ?");
+    qryRemoveStudent.bind(1, id);
+
+    return qryRemoveStudent.exec();
 }
 
 

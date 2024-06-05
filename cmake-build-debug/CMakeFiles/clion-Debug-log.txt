@@ -20,6 +20,6 @@ CMake Deprecation Warning:
 -- SQLITECPP_RUN_DOXYGEN OFF
 -- SQLITECPP_BUILD_EXAMPLES OFF
 -- SQLITECPP_BUILD_TESTS OFF
--- Configuring done (0.2s)
--- Generating done (0.1s)
+-- Configuring done (0.3s)
+-- Generating done (0.2s)
 -- Build files have been written to: C:/Users/hima1/CLionProjects/oop-project/cmake-build-debug

@@ -1,63 +1,13 @@
 
 #include "Admin.h"
+#include "DB.h"
+#include "Global.h"
 
 using namespace std;
 
 
-void clearScreen() {
-#ifdef _WIN32
-    system("cls");
-#else
-    cout << "\033[2J\033[1;1H";
-#endif
-}
 
-void pauseScreen() {
-    cout << "Press Enter to continue...";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin.get();
-}
 
-void displayLogo() {
-    cout << "\033[1;35m"; // Set text color to magenta
-    cout << R"(
-  /--------------------------------------------------\
-  |                                                  |
-  |                                                  |
-  |  ,---.                 ,--.                      |
-  | '   .-',--. ,--.,---.,-'  '-. ,---. ,--,--,--.   |
-  | `.  `-. \  '  /(  .-''-.  .-'| .-. :|        |   |
-  | .-'    | \   ' .-'  `) |  |  \   --.|  |  |  |   |
-  | -----'.-'  /  `----'  `--'   `----'------'   |   |
-  |         `---'                                    |
-  |                                                  |
-  |                                                  |
-  \--------------------------------------------------/
-)" << '\n';
-    cout << "\033[0m"; // Reset text color
-}
-
-//void displayMenu() {
-//    cout << "\033[1;36m"; // Set text color to cyan
-//    cout << R"(
-//+----------------------------------------+
-//|               MAIN MENU                |
-//+----------------------------------------+
-//| 1. Login                               |
-//| 2. Add Student                         |
-//| 3. Remove Student                      |
-//| 4. Add Teacher                         |
-//| 5. Remove Teacher                      |
-//| 6. Add Course                          |
-//| 7. Remove Course                       |
-//| 8. Print All Students                  |
-//| 9. Print All Teachers                  |
-//| 10. Print All Courses                  |
-//| 11. Exit                               |
-//+----------------------------------------+
-//Enter your choice: )";
-//    cout << "\033[0m"; // Reset text color
-//}
 
 void displayFooter() {
     cout << "\033[1;33m"; // Set text color to yellow
@@ -80,13 +30,18 @@ void Admin::addStudent(Student s) {
     }
 }
 
+void Admin::addStudent(string Name, string Email, string Password) {
+    int id = DB::addNewStudent(Name, Email, Password);
+    cout << colored("Student Added Successfully", Colors::green) << endl;
+    cout << "Student ID: " << id << endl;
+}
+
 void Admin::removeStudent(int id) {
-    auto it = students.find(id);
-    if (it != students.end()) {
-        students.erase(it);
-        cout << "Deleted student-id: " << id << endl;
+    bool remove = DB::removeStudent(id);
+    if (remove) {
+        cout << colored("Deleted student of id: " + to_string(id), Colors::green) << endl;
     } else {
-        cout << "Student of ID " << id << "not found \n" << endl;
+        cout << colored("Student of ID " + to_string(id) + " not found", Colors::red) << endl;
     }
 }
 

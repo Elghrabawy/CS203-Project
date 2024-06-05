@@ -11,7 +11,10 @@ set(SQLITECPP_RUN_CPPLINT OFF CACHE BOOL "" FORCE)
 
 add_executable(oop_project main.cpp resources/classes/Course.cpp resources/classes/Course.h resources/classes/User.cpp resources/classes/User.h resources/classes/Student.cpp resources/classes/Student.h resources/classes/Enrollment.cpp resources/classes/Enrollment.h resources/classes/Teacher.cpp resources/classes/Teacher.h resources/classes/Admin.cpp resources/classes/Admin.h resources/classes/Global.cpp resources/classes/Global.h
         resources/classes/DB.cpp
-        config.h)
+        config.h
+        resources/classes/System.cpp
+        resources/classes/System.h
+        resources/classes/System.cpp)
 
 add_subdirectory(SQLiteCpp)
 

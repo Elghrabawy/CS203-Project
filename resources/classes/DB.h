@@ -27,7 +27,10 @@ public:
      */
     DB();
 
-    /********** Students table functions **********/
+    /******************************************************/
+    /************** Students table functions **************/
+    /******************************************************/
+
     /**
      * Function to get a student object by student id.
      * @param id - The id of the student.
@@ -59,6 +62,12 @@ public:
      */
     static int addNewStudent(string name, string email, string password);
 
+    /**
+     * Function to remove a student from the database.
+     * @param id - The id of the student.
+     * @return
+     */
+    static bool removeStudent(int id);
 
     /********** Teachers table functions **********/
     /**

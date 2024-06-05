@@ -24,9 +24,6 @@ private:
     string courseCode; // Course code that the teacher is teaching
     float salary; // Salary of the teacher
 public:
-    map<int, Student> students; // Map of students with student ID as key
-    map<string, Course> courses; // Map of courses with course code as key
-
     /**
      * Constructor with ID, name, email, password, course code, and salary
      */
@@ -81,12 +78,20 @@ public:
      */
     bool teacherMenu();
 
+    /**
+     * Method to view teacher information
+     */
     void viewInfo();
 
     /**
      * Override login method from User
      */
     void login() override;
+
+    /**
+     * Method to check if the teacher instance is valid
+     */
+    bool is();
 };
 
 #endif //OOP_PROJECT_TEACHER_H
