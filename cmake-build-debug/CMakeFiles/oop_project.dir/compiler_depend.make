@@ -433,6 +433,8 @@ CMakeFiles/oop_project.dir/resources/classes/Admin.cpp.obj: C:/Users/hima1/CLion
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/locale.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
@@ -446,16 +448,19 @@ CMakeFiles/oop_project.dir/resources/classes/Admin.cpp.obj: C:/Users/hima1/CLion
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/signal.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/time.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
@@ -780,6 +785,8 @@ CMakeFiles/oop_project.dir/resources/classes/DB.cpp.obj: C:/Users/hima1/CLionPro
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/locale.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
@@ -805,6 +812,7 @@ CMakeFiles/oop_project.dir/resources/classes/DB.cpp.obj: C:/Users/hima1/CLionPro
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/time.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
@@ -1117,6 +1125,8 @@ CMakeFiles/oop_project.dir/resources/classes/Global.cpp.obj: C:/Users/hima1/CLio
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/locale.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
@@ -1129,16 +1139,19 @@ CMakeFiles/oop_project.dir/resources/classes/Global.cpp.obj: C:/Users/hima1/CLio
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/signal.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/time.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
@@ -1334,6 +1347,8 @@ CMakeFiles/oop_project.dir/resources/classes/Student.cpp.obj: C:/Users/hima1/CLi
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/locale.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
@@ -1359,6 +1374,7 @@ CMakeFiles/oop_project.dir/resources/classes/Student.cpp.obj: C:/Users/hima1/CLi
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/time.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
@@ -1544,6 +1560,8 @@ CMakeFiles/oop_project.dir/resources/classes/Teacher.cpp.obj: C:/Users/hima1/CLi
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/errno.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/locale.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/malloc.h \
@@ -1556,16 +1574,19 @@ CMakeFiles/oop_project.dir/resources/classes/Teacher.cpp.obj: C:/Users/hima1/CLi
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/signal.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/time.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \

@@ -13,8 +13,9 @@ int getIntRange(int low, int high)
         return value;
     }
     else {
-        cout << ">> Invalid Input.. please try again!\n\n";
-        return getIntRange(low, high);
+        cout << ">> Invalid Input..\n\n";
+        return -1;
+//        return getIntRange(low, high);
     }
     return 0;
 }
@@ -69,7 +70,7 @@ int readMenu2(vector<string> menu, string text) {
     }
     cout << endl;
 
-    cout << " : ";
+    cout << ": ";
     return getIntRange(1, (int)menu.size());
 }
 
@@ -121,7 +122,6 @@ string printAlign(string input, Position pos, int width) {
             spaces_aft = (width - input.length());
             break;
     }
-//    cout << spaces << " " << spaces_aft << " " << input.size() << endl;
     return string(spaces, ' ') + input + string(spaces_aft, ' ');
 }
 
@@ -158,6 +158,15 @@ void tableFooter(int colNumbers, int width, int startSpaces) {
     for(int i = 0; i < colNumbers; i++)
         cout << "+" << string(width, '-');
     cout << "+" << endl;
+}
+
+void _exit() {
+    cout << colored("Exit", "\033[1;31m") << endl;
+    for(int i = 0; i < 3; i++) {
+        usleep(100 * 1000);;
+        cout << colored(".", "\033[1;31m");
+    }
+    usleep(100 * 1000);
 }
 
 

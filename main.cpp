@@ -139,9 +139,6 @@ void login() {
             else{
                 system("cls");
                 Student cur = DB::getStudent(id);
-                for(auto &course : DB::getAllCourses()){
-                    cur.courses.insert({course.get_code(), course});
-                }
                 cur.login();
             }
 

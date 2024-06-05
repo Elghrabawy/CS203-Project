@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <unistd.h>
 
 using namespace std;
 
@@ -98,5 +99,6 @@ void tableData(vector<string> content, int width = 15, int startSpaces = 20);
  */
 void tableFooter(int colNumbers, int width = 15, int startSpaces = 20);
 
+void _exit();
 
 #endif //OOP_PROJECT_GLOBAL_H

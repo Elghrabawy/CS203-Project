@@ -121,6 +121,8 @@ public:
     * @param code - The code of the course.
     * @return - The course object.
     */
+
+    static vector<string> getNotEnrolledCourses(int studentID);
     static Course getCourse(string code);
     /**
      * Function to get all courses as objects.

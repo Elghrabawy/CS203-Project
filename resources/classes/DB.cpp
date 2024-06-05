@@ -104,8 +104,6 @@ int DB::addNewStudent(string name, string email, string password) {
 }
 
 int DB::addNewEnrollment(string code, int studentID) {
-//    SQLite::Database db = SQLite::Database(DATABASE_PATH, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
-
     Course course = getCourse(code);
     if(!course.is()){
         return -1;
@@ -324,9 +322,19 @@ bool DB::modifyEnrollment(int studentID, string courseCode, int points) {
     return true;
 }
 
-//DB::DB() {
-//    db = SQLite::Database(DATABASE_PATH, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
-//}
+vector<string> DB::getNotEnrolledCourses(int studentID) {
+    vector<string> coursesCodes;
+    string stmEnrolledCourses = "SELECT courseCode FROM enrollments WHERE studentID = ?";
+    string stmNotEnrolledCourses = "SELECT courseCode FROM courses WHERE courseCode NOT IN (" + stmEnrolledCourses + ")";
+
+    SQLite::Statement qryCourse(db, stmNotEnrolledCourses);
+    qryCourse.bind(1, studentID);
+
+    while(qryCourse.executeStep()){
+        coursesCodes.push_back(qryCourse.getColumn("courseCode").getString());
+    }
+    return coursesCodes;
+}
 
 
 

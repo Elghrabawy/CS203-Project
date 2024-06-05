@@ -207,4 +207,9 @@ CMakeFiles/oop_project.dir/resources/classes/Admin.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/string.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
  C:\Users\hima1\CLionProjects\oop-project\resources\classes\Teacher.h

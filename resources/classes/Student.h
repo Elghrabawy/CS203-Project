@@ -23,8 +23,6 @@ class Student : public User{
 private:
     vector<Enrollment> enrollments;
 public:
-    map<string, Course> courses; // course code, Course
-
     Student(int ID, string Name, string Email, string Password, vector <Enrollment> Enrollments);
 
     Student(string Name, string Email, string Password, vector <Enrollment> Enrollments);

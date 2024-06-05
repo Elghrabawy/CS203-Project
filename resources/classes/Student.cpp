@@ -1,7 +1,3 @@
-//
-// Created by hima1 on 5/16/2024.
-//
-
 #include "Student.h"
 #include "DB.h"
 
@@ -15,26 +11,12 @@ Student::Student(int ID, string Name, string Email, string Password, vector<Enro
     enrollments = Enrollments;
 }
 
-
-
 void Student::login() {
     while(studentMenu()) continue;
 }
 
 vector<Enrollment> Student::get_enrollments() {
     return enrollments;
-}
-
-vector<Course> Student::enrolledCourses() {
-    vector <Course> Enrolledcourses;
-//    for(int i = 0; i < enrollments.size(); i++){
-//        Enrolledcourses.push_back(courses.find(enrollments[i].get_code())->second);
-//    }
-
-    for(auto &enroll : enrollments){
-        Enrolledcourses.push_back(DB::getCourse(enroll.get_code()));
-    }
-    return Enrolledcourses;
 }
 
 void Student::enrollNewCourse(string courseCode) {
@@ -44,25 +26,9 @@ void Student::enrollNewCourse(string courseCode) {
 }
 
 void Student::changeCoursePoints(string courseCode, int points) {
-    // without db
-    int idx = -1;
-    for(int i = 0; i < enrollments.size(); i++){
-        if(enrollments[i].get_code() == courseCode){
-            idx = i;
-            break;
-        }
-    }
-    if(idx != -1){
-        enrollments[idx].set_points(points);
-    }
-    else{
-        cout << "this course not exists" << endl;
-    }
-
-    // with_db
     bool exist = DB::modifyEnrollment(id, courseCode, points);
     if(!exist){
-//        cout << "This course not exists" << endl;
+        cout << "This course not exists" << endl;
     }
 }
 
@@ -103,6 +69,71 @@ string Student::getTotalGrade() {
     }
 }
 
+void Student::modifyInfo() {
+    int choose = readMenu2({
+                                   "Modify name",
+                                   "Modify password",
+                                   "Modify email"
+                           },
+                           "choose one option: ");
+    switch (choose) {
+        case 1:{
+            string Name;
+            cout << "Enter Modifying Name : ";
+            cin >> Name;
+            setName(Name);
+            DB::modifyStudentInfo(id, Name, DB::fields::_NAME);
+            break;
+        }
+        case 2:{
+            string Password;
+            cout << "Enter Modifying Password : ";
+            cin >> Password;
+            setPassword(Password);
+            DB::modifyStudentInfo(id, Password, DB::fields::_PASSWORD);
+            break;
+        }
+        case 3:{
+            string Email;
+            cout << "Enter Modifying Email : ";
+            cin >> Email;
+            setEmail(Email);
+            DB::modifyStudentInfo(id, Email, DB::fields::_EMAIL);
+            break;
+        }
+    }
+}
+
+void Student::viewEnrolledCourses() {
+    cout << "                      ";
+    cout << "+" << string(15, '-') << "+" << string(15, '-') << "+" << endl;
+    cout << "                      ";
+    cout << "|" << printAlign("course code", CENTER, 15) << "|" << printAlign("grade", CENTER, 15) << "|" << endl;
+    cout << "                      ";
+    cout << "+" << string(15, '-') << "+" << string(15, '-') << "+" << endl;
+    for (auto &e : enrollments)
+    {
+        string course_code = e.get_code();
+        string grade = e.get_grade();
+        cout << "                      ";
+        cout << "|" << printAlign(course_code, CENTER, 15) << "|" << printAlign(grade, CENTER, 15) << "|" << endl;
+
+    }
+    cout << "                      ";
+    cout << "+" << string(15, '-') << "+" << string(15, '-') << "+" << endl;
+
+    if(enrollments.size() == 0){
+        cout << colored("No Enrolled Courses", "\033[1;31m");
+    }
+}
+
+void Student::viewInfo() {
+    tableHeader({"ID", to_string(id)}, 21, 16);
+    tableHeader({"Name", name}, 21, 16);
+    tableHeader({"Email", email}, 21, 16);
+    tableHeader({"Password", password}, 21, 16);
+}
+
 bool Student::studentMenu()
 {
     system("cls");
@@ -122,11 +153,23 @@ bool Student::studentMenu()
         {
             system("cls");
             header("ENROLL NEW COURSE");
-            string code;
-            cout << "Enter Your Code : ";
-            cin >> code;
-            enrollNewCourse(code);
-            pauseScreen();
+            vector<string> notEnrolledCourses = DB::getNotEnrolledCourses(id);
+            if(notEnrolledCourses.empty()){
+                cout << colored("No Courses to enroll", "\033[1;31m") << endl;
+                pauseScreen();
+                break;
+            }
+            else{
+                int choose = readMenu2(notEnrolledCourses, "Choose the number of course to enroll: ");
+                if(choose == -1){
+                    pauseScreen();
+                    break;
+                }
+                else{
+                    enrollNewCourse(notEnrolledCourses[choose - 1]);
+                    pauseScreen();
+                }
+            }
             break;
         }
         case 2:
@@ -141,10 +184,7 @@ bool Student::studentMenu()
         {
             system("cls");
             header("VIEW ALL INFO");
-            cout << "Name : " << name << endl;
-            cout << "ID    : " << id << endl;
-            cout << "E-mail : " << email << endl;
-            cout << "Password : " << password << endl;
+            viewInfo();
             pauseScreen();
             break;
         }
@@ -152,63 +192,15 @@ bool Student::studentMenu()
         {
             system("cls");
             header("VIEW ENROLLED COURSES");
-            cout << "                      ";
-            cout << "+" << string(15, '-') << "+" << string(15, '-') << "+" << endl;
-            cout << "                      ";
-            cout << "|" << printAlign("course code", CENTER, 15) << "|" << printAlign("grade", CENTER, 15) << "|" << endl;
-            cout << "                      ";
-            cout << "+" << string(15, '-') << "+" << string(15, '-') << "+" << endl;
-            for (auto &e : enrollments)
-            {
-                string course_code = e.get_code();
-                string grade = e.get_grade();
-                cout << "                      ";
-                cout << "|" << printAlign(course_code, CENTER, 15) << "|" << printAlign(grade, CENTER, 15) << "|" << endl;
-
-            }
-            cout << "                      ";
-            cout << "+" << string(15, '-') << "+" << string(15, '-') << "+" << endl;
-
-            if(enrollments.size() == 0){
-                cout << colored("No Enrolled Courses", "\033[1;31m");
-            }
-
+            viewEnrolledCourses();
             pauseScreen();
-
             break;
         }
         case 5:
         {
             system("cls");
             header("MODIFY INFO");
-            int choose = readMenu2({
-                "Modify name",
-                "Modify password",
-                "Modify email"
-            },
-                                   "choose one option: ");
-            switch (choose) {
-                case 1:{
-                    string n;
-                    cout << "Enter Modifying Name : ";
-                    cin >> n;
-                    setName(n);
-                    break;
-                }
-                case 2:{
-                    string p;
-                    cout << "Enter Modifying Password : ";
-                    cin >> p;
-                    setPassword(p);
-                    break;
-                }
-                case 3:{
-                    string e;
-                    cout << "Enter Modifying Email : ";
-                    cin >> e;
-                    setEmail(e);
-                }
-            }
+            modifyInfo();
             pauseScreen();
             break;
         }
@@ -223,4 +215,8 @@ bool Student::studentMenu()
 bool Student::is() {
     return ((name != "NULL") && (email != "NULL") && (password != "NULL"));
 }
+
+
+
+
 

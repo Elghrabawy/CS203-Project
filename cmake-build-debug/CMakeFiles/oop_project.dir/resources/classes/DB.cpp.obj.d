@@ -233,6 +233,9 @@ CMakeFiles/oop_project.dir/resources/classes/DB.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_algo.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
  C:/Users/hima1/CLionProjects/oop-project/resources/classes/Global.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/unistd.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/io.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.1.1/bin/mingw/x86_64-w64-mingw32/include/getopt.h \
  C:/Users/hima1/CLionProjects/oop-project/resources/classes/Teacher.h \
  C:/Users/hima1/CLionProjects/oop-project/resources/classes/Student.h \
  C:/Users/hima1/CLionProjects/oop-project/resources/classes/Course.h
