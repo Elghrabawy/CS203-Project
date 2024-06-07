@@ -107,121 +107,123 @@ void Admin::printAllCourses() {
     }
 }
 
-void Admin::adminMenu() {
+bool Admin::adminMenu() {
     int choice;
-    do {
-        clearScreen();
-        choice = readMenu(
-                {"Login",
-                 "Add Student",
-                 "Remove Student",
-                 "Add Teacher",
-                 "Remove Teacher",
-                 "Add Course",
-                 "Remove Course",
-                 "Print All Students",
-                 "Print All Teachers",
-                 "Print All Courses",
-                 "Exit"
-                },
-                "Admin Menu"
-        );
+    clearScreen();
+    choice = readMenu(
+            {"Login",
+             "Add Student",
+             "Remove Student",
+             "Add Teacher",
+             "Remove Teacher",
+             "Add Course",
+             "Remove Course",
+             "Print All Students",
+             "Print All Teachers",
+             "Print All Courses",
+             "Exit"
+            },
+            "Admin Menu"
+    );
 
-        // Ensure any remaining input is cleared
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    // Ensure any remaining input is cleared
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    clearScreen();
+    switch (choice) {
+        // add Student
+        case 2: {
+            string name, email, password;
+            cout << "Enter student name : ";
+            cin >> name;
+            cout << "Enter student email : ";
+            cin >> email;
+            cout << "Enter student password : ";
+            cin >> password;
 
-        switch (choice) {
-            // add Student
-            case 2: {
-                string name, email, password;
-                cout << "Enter student name : ";
-                cin >> name;
-                cout << "Enter student email : ";
-                cin >> email;
-                cout << "Enter student password : ";
-                cin >> password;
-
-                addStudent(name, email, password);
-                break;
-            }
-            // remove student
-            case 3: {
-                printAllStudents();
-                int id;
-                cout << "Enter student ID to remove: ";
-                cin >> id;
-                removeStudent(id);
-                break;
-            }
-            // add teacher
-            case 4: {
-                string name, email, password, code;
-                float salary;
-
-                cout << "\nEnter student name : ";
-                cin >> name;
-                cout << "\nEnter student email : ";
-                cin >> email;
-                cout << "\nEnter student password : ";
-                cin >> password;
-                cout << "\nEnter course code : ";
-                cin >> code;
-                cout << "\nEnter salary : ";
-                cin >> salary;
-
-                addTeacher(name, email, password, code, salary);
-                break;
-            }
-            // remove teacher
-            case 5: {
-                int id;
-                cout << "Enter teacher ID to remove: ";
-                cin >> id;
-                removeTeacher(id);
-                break;
-            }
-            // add course
-            case 6: {
-                string code, name;
-                cout << "Enter course ID and name: ";
-                cin >> code >> name;
-                addCourse(code, name);
-                break;
-            }
-            // remove course
-            case 7: {
-                string id;
-                cout << "Enter course ID to remove: ";
-                cin >> id;
-                removeCourse(id);
-                break;
-            }
-            // print all students
-            case 8:
-                printAllStudents();
-                break;
-            // print all teachers
-            case 9:
-                printAllTeachers();
-                break;
-            // print all courses
-            case 10:
-                printAllCourses();
-                break;
-            case 11:
-                cout << "\033[1;31m> Exiting the program.\033[0m\n";
-                return;
-            default:
-                cout << "\033[1;31m> Invalid choice. Please select a valid option.\033[0m\n";
-                break;
+            addStudent(name, email, password);
+            break;
         }
-        displayFooter();
-        pauseScreen();
-    } while (choice != 11);
+            // remove student
+        case 3: {
+            printAllStudents();
+            int id;
+            cout << "Enter student ID to remove: ";
+            cin >> id;
+            removeStudent(id);
+            break;
+        }
+            // add teacher
+        case 4: {
+            string name, email, password, code;
+            float salary;
+
+            cout << "\nEnter student name : ";
+            cin >> name;
+            cout << "\nEnter student email : ";
+            cin >> email;
+            cout << "\nEnter student password : ";
+            cin >> password;
+            cout << "\nEnter course code : ";
+            cin >> code;
+            cout << "\nEnter salary : ";
+            cin >> salary;
+
+            addTeacher(name, email, password, code, salary);
+            break;
+        }
+            // remove teacher
+        case 5: {
+            int id;
+            cout << "Enter teacher ID to remove: ";
+            cin >> id;
+            removeTeacher(id);
+            break;
+        }
+            // add course
+        case 6: {
+            string code, name;
+            cout << "Enter course ID and name: ";
+            cin >> code >> name;
+            addCourse(code, name);
+            break;
+        }
+            // remove course
+        case 7: {
+            string id;
+            cout << "Enter course ID to remove: ";
+            cin >> id;
+            removeCourse(id);
+            break;
+        }
+            // print all students
+        case 8:
+            printAllStudents();
+            break;
+            // print all teachers
+        case 9:
+            printAllTeachers();
+            break;
+            // print all courses
+        case 10:
+            printAllCourses();
+            break;
+        case 11:
+            cout << "\033[1;31m> Exiting the program.\033[0m\n";
+            return false;
+        default:
+            cout << "\033[1;31m> Invalid choice. Please select a valid option.\033[0m\n";
+            return false;
+    }
+    pauseScreen();
+    return true;
 }
 
 void Admin::removeCourse(string) {
     cout << colored("Will be implemented in the future\n", Colors::yellow);
 
+}
+
+void Admin::login() {
+    while(adminMenu());
 }
 
